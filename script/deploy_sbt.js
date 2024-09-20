@@ -2,10 +2,10 @@ const hre = require("hardhat");
 
 async function main() {
     // Deploy the contract
-    const SoulBoundToken = await hre.ethers.getContractFactory("SoulBoundToken");
-    const sbt = await SoulBoundToken.deploy("AirDAO SoulBound Token", "ASBT");
+    const SBT = await hre.ethers.getContractFactory("SBT");
+    const sbt = await SBT.deploy("AirDAO SoulBound Token", "ASBT");
     await sbt.deployed();
-    console.log("SoulBoundToken standard deployed to:", sbt.address);
+    console.log("SBT standard deployed to:", sbt.address);
 
     // Example: Mint a token with a generic metadata URI
     const [owner] = await ethers.getSigners();
