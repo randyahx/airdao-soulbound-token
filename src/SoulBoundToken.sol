@@ -2,12 +2,11 @@
 pragma solidity ^0.8.20;
 
 import "./Context.sol";
-import "./ERC165.sol";
 import "./ISBT.sol";
 import "./ISBTMetadata.sol";
 import "./ISBTErrors.sol";
 
-contract SoulBoundToken is Context, ERC165, ISBTMetadata, ISBTErrors {
+contract SoulBoundToken is Context, ISBT, ISBTMetadata, ISBTErrors {
     string private _name;
     string private _symbol;
 
@@ -23,9 +22,9 @@ contract SoulBoundToken is Context, ERC165, ISBTMetadata, ISBTErrors {
         _tokenIdCounter = 0;
     }
 
-    function supportsInterface(bytes4 interfaceId) public view virtual override(ERC165, IERC165) returns (bool) {
+    function supportsInterface(bytes4 interfaceId) public view virtual override returns (bool) {
         return interfaceId == type(ISBT).interfaceId || interfaceId == type(ISBTMetadata).interfaceId
-            || super.supportsInterface(interfaceId);
+            || interfaceId == 0x01ffc9a7; // ERC165 interface ID
     }
 
     function name() public view virtual override returns (string memory) {
@@ -58,7 +57,7 @@ contract SoulBoundToken is Context, ERC165, ISBTMetadata, ISBTErrors {
         return owner;
     }
 
-    function mint(address to, string memory metadataURI) external virtual returns (uint256) {
+    function mint(address to, string memory metadataURI) external virtual override returns (uint256) {
         if (to == address(0)) {
             revert SBTInvalidReceiver(address(0));
         }
@@ -71,36 +70,7 @@ contract SoulBoundToken is Context, ERC165, ISBTMetadata, ISBTErrors {
         _balances[to] = 1;
         _tokenURIs[tokenId] = metadataURI;
 
-        emit Transfer(address(0), to, tokenId);
+        emit Minted(to, tokenId);
         return tokenId;
-    }
-
-    // Prevent transfers
-    function safeTransferFrom(address, address, uint256, bytes calldata) external pure override {
-        revert("SBT: Transfer not allowed");
-    }
-
-    function safeTransferFrom(address, address, uint256) external pure override {
-        revert("SBT: Transfer not allowed");
-    }
-
-    function transferFrom(address, address, uint256) external pure override {
-        revert("SBT: Transfer not allowed");
-    }
-
-    function approve(address, uint256) external pure override {
-        revert("SBT: Approval not allowed");
-    }
-
-    function setApprovalForAll(address, bool) external pure override {
-        revert("SBT: ApprovalForAll not allowed");
-    }
-
-    function getApproved(uint256) external pure override returns (address) {
-        revert("SBT: Approval not allowed");
-    }
-
-    function isApprovedForAll(address, address) external pure override returns (bool) {
-        return false;
     }
 }
