@@ -40,14 +40,15 @@ cast send ${CONTRACT_ADDRESS} "mint(address,string)" ${RECIPIENT_ADDRESS} ${META
 --rpc-url eth_testnet --private-key ${PRIVATE_KEY}  
 ```
 
-**Check if user owns a token**
+**Check if user owns a token.** This returns a token ID.  
 ```
 cast call ${CONTRACT_ADDRESS} "balanceOf(address)(uint256)" 
 ${RECIPIENT_ADDRESS} --rpc-url <airdao_testnet|airdao_mainnet>
 ```
 
 **Get all achievements for a token**
-cast call 0xBEE236DD56637f5ED6D4c8A6721c694e8580448E "getAchievements(uint256)((string,string)[])" <token_id> --rpc-url eth_testnet
+```
+cast call 0xBEE236DD56637f5ED6D4c8A6721c694e8580448E "getAchievements(uint256)((string,string)[])" ${TOKEN_ID} --rpc-url eth_testnet
 ```
 
 **Add achievement to token**
