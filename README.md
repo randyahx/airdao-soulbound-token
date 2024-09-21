@@ -1,7 +1,5 @@
 ## Soulbound Token Standard (SBT)
-This can be found under /src/SoulBoundTokenStandard and competes for the **Soul Bound Tokens (SBT’s) on AirDAO** prize category.  
-
-The contract is modelled after ERC721.sol but is non-transferable with reputation management.
+This can be found under /src/SoulBoundTokenStandard and competes for the **Soul Bound Tokens (SBT’s) on AirDAO** prize category. The contract is modelled after ERC721.sol but is non-transferable with reputation management.
 
 **SBT.sol** is the standard SBT Contract  
 
