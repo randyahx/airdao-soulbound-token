@@ -34,7 +34,7 @@ forge script script/InteractDiscordToken.s.sol:InteractDiscordToken --sig "remov
 ```
 
 ```
-cast send ${CONTRACT_ADDRESS} "mint(address,string)" ${RECIPIENT_ADDRESS} "url" 
+cast send ${CONTRACT_ADDRESS} "mint(address,string)" ${RECIPIENT_ADDRESS} ${METADATA_URI}
 --rpc-url eth_testnet --private-key ${PRIVATE_KEY}  
 ```
 ```
