@@ -1,0 +1,21 @@
+{
+  "name": "airdao-soulbound-token",
+  "version": "1.0.0",
+  "description": "This can be found under /src/SoulBoundTokenStandard and competes for the **Soul Bound Tokens (SBT’s) on AirDAO** prize category. The contract is modelled after ERC721.sol but is non-transferable with reputation management (achievements). Achievements can be granted/revoked to support token gated communities.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.16.2",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.2"
+  }
+}

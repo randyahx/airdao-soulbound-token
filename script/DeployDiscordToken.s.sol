@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
-import "forge-std/Script.sol";
+import "../lib/forge-std/src/Script.sol";
 import "../src/DiscordToken/DSBT.sol";
 
 contract DeployDiscordToken is Script {
@@ -11,10 +11,7 @@ contract DeployDiscordToken is Script {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
         vm.startBroadcast(deployerPrivateKey);
 
-        dsbtToken = new DSBT("DiscordSoulBoundToken", "DSBT");
-
-        console.log("DiscordToken deployed to:", address(dsbtToken));
-        console.log("DiscordToken Owner:", dsbtToken.owner());
+        console.log("hi");
 
         vm.stopBroadcast();
     }
