@@ -1,5 +1,5 @@
 ## Soulbound Token Standard (SBT)
-This can be found under /src/SoulBoundTokenStandard
+This can be found under /src/SoulBoundTokenStandard and competes for the **Soul Bound Tokens (SBT’s) on AirDAO** prize category.  
 
 The contract is modelled after ERC721.sol but is non-transferable with reputation management.
 
@@ -8,7 +8,7 @@ The contract is modelled after ERC721.sol but is non-transferable with reputatio
 **SBTAchievements.sol** is an extendable that allows achievements to be added/removed for reputation management and specialized purposes such as gatekeeping communities.
 
 ## Discord Token for gatekeeping Discord server
-This can be found under /src/DiscordToken
+This can be found under /src/DiscordToken and competes for the **Token Gated Communities on AirDAO** prize category.  
 
 ### Deploy Discord Token
 
