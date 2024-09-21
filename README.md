@@ -5,6 +5,7 @@ This can be found under /src/SoulBoundTokenStandard and competes for the **Soul 
 
 **SBTAchievements.sol** is an extendable that allows achievements to be added/removed for reputation management and specialized purposes such as gatekeeping communities.
 
+
 ## Token Gated Communities (Discord)
 This can be found under /src/DiscordToken and competes for the **Token Gated Communities on AirDAO** prize category.  
 
