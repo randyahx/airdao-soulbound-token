@@ -18,21 +18,7 @@ source .env
 forge script script/DeployDiscordToken.s.sol --rpc-url <airdao_testnet|airdao_mainnet> --private-key ${PRIVATE_KEY} --broadcast --legacy
 ```
 
-### Check Contract State
-
-```
-forge script script/InteractDiscordToken.s.sol:InteractDiscordToken --sig "checkContractState()" --rpc-url <airdao_testnet|airdao_mainnet>  
-```
-
 ### Interact with Discord Token
-
-```
-forge script script/InteractDiscordToken.s.sol:InteractDiscordToken --sig "mintToken(address,string)" <recipient_address> "<metadata_uri>" --rpc-url <airdao_testnet|airdao_mainnet> --broadcast --legacy
-
-forge script script/InteractDiscordToken.s.sol:InteractDiscordToken --sig "addAchievement(uint256,string,string)" <token_id> "<title>" "<description>" --rpc-url <airdao_testnet|airdao_mainnet> --broadcast --legacy
-
-forge script script/InteractDiscordToken.s.sol:InteractDiscordToken --sig "removeAchievement(uint256,string)" <token_id> "<title>" --rpc-url <airdao_testnet|airdao_mainnet> --broadcast --legacy
-```
 
 **Mint token**
 ```
