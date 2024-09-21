@@ -10,9 +10,9 @@ contract DeployDiscordToken is Script {
     function run() external {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
         vm.startBroadcast(deployerPrivateKey);
-
-        console.log("hi");
-
+        dsbtToken = new DSBT("DiscordSoulBoundToken", "DSBT");
+        console.log("DiscordToken deployed to:", address(dsbtToken));
+        console.log("DiscordToken Owner:", dsbtToken.owner());
         vm.stopBroadcast();
     }
 }
