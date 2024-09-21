@@ -1,5 +1,6 @@
 ## Soulbound Token Standard (SBT)
 This can be found under /src/SoulBoundTokenStandard
+
 The contract is modelled after ERC721.sol but is non-transferable with reputation management.
 
 **SBT.sol** is the standard SBT Contract  
