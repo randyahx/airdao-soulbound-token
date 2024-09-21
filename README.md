@@ -38,7 +38,8 @@ cast send ${CONTRACT_ADDRESS} "mint(address,string)" ${RECIPIENT_ADDRESS} "url"
 --rpc-url eth_testnet --private-key ${PRIVATE_KEY}  
 ```
 ```
-cast call ${CONTRACT_ADDRESS} "balanceOf(address)(uint256)" 0xfa97a95C49369181211679d24F61A49470Bba110 --rpc-url <airdao_testnet|airdao_mainnet>
+cast call ${CONTRACT_ADDRESS} "balanceOf(address)(uint256)" 
+${RECIPIENT_ADDRESS} --rpc-url <airdao_testnet|airdao_mainnet>
 ```
 ```
 cast send ${CONTRACT_ADDRESS} "addAchievement(uint256,string,string)" ${TOKEN_ID} 
