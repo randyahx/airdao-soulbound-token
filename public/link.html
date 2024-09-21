@@ -1,1 +1,70 @@
- 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link MetaMask Wallet</title>
+    <script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js"></script>
+</head>
+
+<body>
+    <h1>Link your MetaMask Wallet</h1>
+    <button id="connectButton">Connect MetaMask</button>
+    <p id="status"></p>
+
+    <script>
+        const connectButton = document.getElementById('connectButton');
+        const statusElement = document.getElementById('status');
+
+        connectButton.addEventListener('click', async () => {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    const provider = new ethers.providers.Web3Provider(window.ethereum);
+                    const signer = provider.getSigner();
+                    const address = await signer.getAddress();
+
+                    const userId = window.location.pathname.split('/').pop();
+                    const response = await fetch(`/verify`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ userId, address }),
+                    });
+
+                    const data = await response.json();
+                    if (data.nonce) {
+                        const messageToSign = `Verify ownership of this wallet for Discord user ${userId}: ${data.nonce}`;
+                        const signature = await signer.signMessage(messageToSign);
+
+                        const verifyResponse = await fetch('/verify', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ userId, address, signature }),
+                        });
+
+                        const verifyData = await verifyResponse.json();
+                        if (verifyData.success) {
+                            statusElement.textContent = 'Wallet linked and token minted successfully!';
+                        } else {
+                            statusElement.textContent = `Error: ${verifyData.error}`;
+                        }
+                    } else {
+                        statusElement.textContent = `Error: ${data.error}`;
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    statusElement.textContent = 'An error occurred. Please try again.';
+                }
+            } else {
+                statusElement.textContent = 'MetaMask is not installed. Please install MetaMask and try again.';
+            }
+        });
+    </script>
+</body>
+
+</html>

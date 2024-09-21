@@ -16,6 +16,7 @@
   "dependencies": {
     "discord.js": "^14.16.2",
     "dotenv": "^16.4.5",
-    "ethers": "^6.13.2"
+    "ethers": "^6.13.2",
+    "express": "^4.21.0"
   }
 }
