@@ -34,19 +34,30 @@ forge script script/InteractDiscordToken.s.sol:InteractDiscordToken --sig "addAc
 forge script script/InteractDiscordToken.s.sol:InteractDiscordToken --sig "removeAchievement(uint256,string)" <token_id> "<title>" --rpc-url <airdao_testnet|airdao_mainnet> --broadcast --legacy
 ```
 
+**Mint token**
 ```
 cast send ${CONTRACT_ADDRESS} "mint(address,string)" ${RECIPIENT_ADDRESS} ${METADATA_URI}
 --rpc-url eth_testnet --private-key ${PRIVATE_KEY}  
 ```
+
+**Check if user owns a token**
 ```
 cast call ${CONTRACT_ADDRESS} "balanceOf(address)(uint256)" 
 ${RECIPIENT_ADDRESS} --rpc-url <airdao_testnet|airdao_mainnet>
 ```
+
+**Get all achievements for a token**
+cast call 0xBEE236DD56637f5ED6D4c8A6721c694e8580448E "getAchievements(uint256)((string,string)[])" <token_id> --rpc-url eth_testnet
+```
+
+**Add achievement to token**
 ```
 cast send ${CONTRACT_ADDRESS} "addAchievement(uint256,string,string)" ${TOKEN_ID} 
 ${ACHIEVEMENT_TITLE} ${ACHIEVEMENT_DESCRIPTION} --rpc-url <airdao_testnet|airdao_mainnet>
 --private-key ${PRIVATE_KEY}
 ```
+
+**Remove achievement from token**
 ```
 cast send ${CONTRACT_ADDRESS} "removeAchievement(uint256,string)" ${TOKEN_ID} 
 ${ACHIEVEMENT_TITLE} --rpc-url <airdao_testnet|airdao_mainnet> --private-key ${PRIVATE_KEY}
