@@ -10,5 +10,6 @@ remappings = [
 [rpc_endpoints]
 airdao_mainnet = "https://network.ambrosus.io/"
 airdao_testnet = "https://network.ambrosus-test.io"
+eth_testnet = "https://eth-sepolia.g.alchemy.com/v2/usdhJkoac1Svlcb7gsSmMikqHNaDAO1W"
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options

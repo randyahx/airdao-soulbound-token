@@ -1,8 +1,8 @@
-// SPDX-License-Identifier: MIT
+// // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
-import "forge-std/Script.sol";
-import "forge-std/console.sol";
+import "@forgestd/Script.sol";
+import "@forgestd/console.sol";
 import "../src/DiscordToken/DSBT.sol";
 
 contract InteractDiscordToken is Script {
@@ -10,7 +10,7 @@ contract InteractDiscordToken is Script {
 
     function setUp() public {
         // Replace with the actual deployed contract address
-        dsbtToken = DSBT(0xD6C6ee22d38D22879263dBb2Fa845B64a7bD055e);
+        dsbtToken = DSBT(0xBEE236DD56637f5ED6D4c8A6721c694e8580448E);
     }
 
     function run() public {
@@ -27,13 +27,8 @@ contract InteractDiscordToken is Script {
         console.log("Attempting to mint token for address:", recipient);
         console.log("Token URI:", tokenURI);
 
-        try dsbtToken.mint(recipient, tokenURI) returns (uint256 tokenId) {
-            console.log("Token minted successfully. Token ID:", tokenId);
-        } catch Error(string memory reason) {
-            console.log("Minting failed. Reason:", reason);
-        } catch (bytes memory lowLevelData) {
-            console.log("Minting failed. Low-level error.");
-        }
+        uint256 tokenId = dsbtToken.mint(recipient, tokenURI);
+        console.log("Token Id: ", tokenId);
 
         vm.stopBroadcast();
     }
