@@ -1,7 +1,9 @@
 ## Soulbound Token Standard (SBT)
 This can be found under /src/SoulBoundTokenStandard
 The contract is modelled after ERC721.sol but is non-transferable with reputation management.
+
 **SBT.sol** is the standard SBT Contract  
+
 **SBTAchievements.sol** is an extendable that allows achievements to be added/removed for reputation management and specialized purposes such as gatekeeping communities.
 
 ## Discord Token for gatekeeping Discord server
