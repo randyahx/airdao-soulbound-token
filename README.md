@@ -1,66 +1,34 @@
-## Foundry
+## Soulbound Token Standard (SBT)
+This can be found under /src/SoulBoundTokenStandard
+The contract is modelled after ERC721.sol but is non-transferable with reputation management.
+**SBT.sol** is the standard SBT Contract  
+**SBTAchievements.sol** is an extendable that allows achievements to be added/removed for reputation management and specialized purposes such as gatekeeping communities.
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+## Discord Token for gatekeeping Discord server
+This can be found under /src/DiscordToken
 
-Foundry consists of:
+### Deploy Discord Token
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+Add wallet private key to .env
 
-## Documentation
+```
+source .env
 
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
+forge script script/DeployDiscordToken.s.sol --rpc-url <airdao_testnet|airdao_mainnet> --private-key ${PRIVATE_KEY} --broadcast --legacy
 ```
 
-### Test
+### Check Contract State
 
-```shell
-$ forge test
+```
+forge script script/InteractDiscordToken.s.sol:InteractDiscordToken --sig "checkContractState()" --rpc-url <airdao_testnet|airdao_mainnet>  
 ```
 
-### Format
+### Interact with Discord Token
 
-```shell
-$ forge fmt
 ```
+forge script script/InteractDiscordToken.s.sol:InteractDiscordToken --sig "mintToken(address,string)" <recipient_address> "<metadata_uri>" --rpc-url <airdao_testnet|airdao_mainnet> --broadcast --legacy
 
-### Gas Snapshots
+forge script script/InteractDiscordToken.s.sol:InteractDiscordToken --sig "addAchievement(uint256,string,string)" <token_id> "<title>" "<description>" --rpc-url <airdao_testnet|airdao_mainnet> --broadcast --legacy
 
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
+forge script script/InteractDiscordToken.s.sol:InteractDiscordToken --sig "removeAchievement(uint256,string)" <token_id> "<title>" --rpc-url <airdao_testnet|airdao_mainnet> --broadcast --legacy
 ```

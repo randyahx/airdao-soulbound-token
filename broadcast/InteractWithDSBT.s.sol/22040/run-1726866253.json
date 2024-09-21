@@ -1,0 +1,47 @@
+{
+  "transactions": [
+    {
+      "hash": "0x469f6ab6eb68dbbb31ec095c2dba33ac450c7d0243e6199857e8ae6a725da93d",
+      "transactionType": "CALL",
+      "contractName": "InteractWithDSBT",
+      "contractAddress": "0x5b73c5498c1e3b4dba84de0f1833c4a029d90519",
+      "function": "executeOperations()",
+      "arguments": [],
+      "transaction": {
+        "from": "0xd4f9573225b65c7590129cfcade37026a963d80c",
+        "to": "0x5b73c5498c1e3b4dba84de0f1833c4a029d90519",
+        "gas": "0x71a6",
+        "value": "0x0",
+        "input": "0x71f67bc6",
+        "nonce": "0x5",
+        "chainId": "0x5618"
+      },
+      "additionalContracts": [],
+      "isFixedGasLimit": false
+    }
+  ],
+  "receipts": [
+    {
+      "status": "0x1",
+      "cumulativeGasUsed": "0x5318",
+      "logs": [],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "type": "0x0",
+      "transactionHash": "0x469f6ab6eb68dbbb31ec095c2dba33ac450c7d0243e6199857e8ae6a725da93d",
+      "transactionIndex": "0x0",
+      "blockHash": "0x157c646be781974136ca3a93056c5003703cb40f4a36f0b319481ad69c17e421",
+      "blockNumber": "0x1b321b",
+      "gasUsed": "0x5318",
+      "effectiveGasPrice": "0x0",
+      "from": "0xd4f9573225b65c7590129cfcade37026a963d80c",
+      "to": "0x5b73c5498c1e3b4dba84de0f1833c4a029d90519",
+      "contractAddress": null
+    }
+  ],
+  "libraries": [],
+  "pending": [],
+  "returns": {},
+  "timestamp": 1726866253,
+  "chain": 22040,
+  "commit": "90f5bf6"
+}

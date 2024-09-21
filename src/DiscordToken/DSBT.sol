@@ -26,15 +26,7 @@ contract DSBT is SBTAchievement, Ownable {
         return tokenId;
     }
 
-    function owner() public view override(Ownable) returns (address) {
+    function owner() public view override(SBTAchievement, Ownable) returns (address) {
         return Ownable.owner();
-    }
-
-    function _msgSender() internal view override(Context, SBT) returns (address) {
-        return _msgSender();
-    }
-
-    function _msgData() internal view override(Context, SBT) returns (bytes calldata) {
-        return _msgData();
     }
 }

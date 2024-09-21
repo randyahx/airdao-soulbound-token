@@ -3,9 +3,12 @@ src = "src"
 out = "out"
 libs = ["lib"]
 remappings = [
-    "@forgestd/src/=lib/forgestd/",
-    "@openzeppelin/src/=lib/openzeppelin-contracts/",
-    "@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/"
+    "@openzeppelin/=lib/openzeppelin-contracts/",
+    "@forgestd/=lib/forge-std/src"
 ]
+
+[rpc_endpoints]
+airdao_mainnet = "https://network.ambrosus.io/"
+airdao_testnet = "https://network.ambrosus-test.io"
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options

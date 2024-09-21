@@ -20,15 +20,13 @@ abstract contract SBTAchievement is SBT {
     }
 
     function _removeAchievement(uint256 tokenId, string memory title) internal {
-        require(ownerOf(tokenId) != address(0), "SBTAchievement: Token does not exist");
-
-        Achievement[] storage tokenAchievements = _achievements[tokenId];
-        for (uint256 i = 0; i < tokenAchievements.length; i++) {
-            if (keccak256(bytes(tokenAchievements[i].title)) == keccak256(bytes(title))) {
+        Achievement[] storage achievements = _achievements[tokenId];
+        for (uint256 i = 0; i < achievements.length; i++) {
+            if (keccak256(bytes(achievements[i].title)) == keccak256(bytes(title))) {
                 // Move the last element to the position of the element to be removed
-                tokenAchievements[i] = tokenAchievements[tokenAchievements.length - 1];
+                achievements[i] = achievements[achievements.length - 1];
                 // Remove the last element
-                tokenAchievements.pop();
+                achievements.pop();
                 return;
             }
         }
@@ -51,4 +49,6 @@ abstract contract SBTAchievement is SBT {
         }
         return false;
     }
+
+    function owner() public view virtual returns (address);
 }

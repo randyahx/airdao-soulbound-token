@@ -101,14 +101,8 @@ abstract contract SBT is ISBT, ISBTMetadata, ISBTErrors {
         _balances[to] += 1;
         _owners[tokenId] = to;
         _tokenURIs[tokenId] = metadataURI;
-    }
 
-    function _msgSender() internal view virtual returns (address) {
-        return msg.sender;
-    }
-
-    function _msgData() internal view virtual returns (bytes calldata) {
-        return msg.data;
+        emit Minted(to, tokenId);
     }
 
     /**
