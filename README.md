@@ -34,11 +34,26 @@ forge script script/InteractDiscordToken.s.sol:InteractDiscordToken --sig "remov
 ```
 
 ```
-cast send ${CONTRACT_ADDRESS} "mint(address,string)" ${RECIPIENT_ADDRESS} "url" --rpc-url eth_testnet --private-key ${PRIVATE_KEY}
-
-cast call ${CONTRACT_ADDRESS} "balanceOf(address)(uint256)" 0xfa97a95C49369181211679d24F61A49470Bba110 --rpc-url <airdao_testnet|airdao_mainnet>
-
-cast send ${CONTRACT_ADDRESS} "addAchievement(uint256,string,string)" ${TOKEN_ID} ${ACHIEVEMENT_TITLE} ${ACHIEVEMENT_DESCRIPTION} --rpc-url <airdao_testnet|airdao_mainnet> --private-key ${PRIVATE_KEY}
-
-cast send ${CONTRACT_ADDRESS} "removeAchievement(uint256,string)" ${TOKEN_ID} ${ACHIEVEMENT_TITLE} --rpc-url <airdao_testnet|airdao_mainnet> --private-key ${PRIVATE_KEY}
+cast send ${CONTRACT_ADDRESS} "mint(address,string)" ${RECIPIENT_ADDRESS} "url" 
+--rpc-url eth_testnet --private-key ${PRIVATE_KEY}  
 ```
+```
+cast call ${CONTRACT_ADDRESS} "balanceOf(address)(uint256)" 0xfa97a95C49369181211679d24F61A49470Bba110 --rpc-url <airdao_testnet|airdao_mainnet>
+```
+```
+cast send ${CONTRACT_ADDRESS} "addAchievement(uint256,string,string)" ${TOKEN_ID} 
+${ACHIEVEMENT_TITLE} ${ACHIEVEMENT_DESCRIPTION} --rpc-url <airdao_testnet|airdao_mainnet>
+--private-key ${PRIVATE_KEY}
+```
+```
+cast send ${CONTRACT_ADDRESS} "removeAchievement(uint256,string)" ${TOKEN_ID} 
+${ACHIEVEMENT_TITLE} --rpc-url <airdao_testnet|airdao_mainnet> --private-key ${PRIVATE_KEY}
+```
+
+cast send ${CONTRACT_ADDRESS} "mint(address,string)" 0xfa97a95C49369181211679d24F61A49470Bba110 "url" --rpc-url <airdao_testnet|airdao_mainnet> --private-key ${PRIVATE_KEY}
+
+cast call 0xBEE236DD56637f5ED6D4c8A6721c694e8580448E "balanceOf(address)(uint256)" 0xfa97a95C49369181211679d24F61A49470Bba110 --rpc-url eth_testnet
+
+cast send 0xBEE236DD56637f5ED6D4c8A6721c694e8580448E "addAchievement(uint256,string,string)" 1 "general" "general" --rpc-url eth_testnet --private-key ${PRIVATE_KEY}
+```
+cast send 0xBEE236DD56637f5ED6D4c8A6721c694e8580448E "removeAchievement(uint256,string)" 1 "private" --rpc-url eth_testnet --private-key ${PRIVATE_KEY}
