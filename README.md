@@ -5,7 +5,7 @@ This is implemented by writing directly to the metadata through the URI. Usually
 
 
 ## Token Gated Communities (Discord)
-This can be found under /src/DiscordToken and competes for the **Token Gated Communities on AirDAO** prize category. It implements the SBT for DSBT (Discord SBT) to assign user roles to allow access to channels after connecting their wallet.  
+This can be found under **/src/DiscordToken** and competes for the **Token Gated Communities on AirDAO** prize category. It implements the SBT for DSBT (Discord SBT) to assign user roles to allow access to channels after connecting their wallet.  
 
 Wasn't able to finish the implementation in time.
 
