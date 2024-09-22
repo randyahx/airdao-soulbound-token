@@ -1,5 +1,5 @@
 ## Soulbound Token Standard (SBT)
-This can be found under **/src/SoulBoundTokenStandard** and competes for the **Soul Bound Tokens (SBT’s) on AirDAO********** prize category. The contract is modelled after ERC721.sol but is non-transferable with reputation management (achievements). Achievements can be granted/revoked to support token gated communities.
+This can be found under **/src/SoulBoundTokenStandard** and competes for the **Soul Bound Tokens (SBT’s) on AirDAO** prize category. The contract is modelled after ERC721.sol but is non-transferable with reputation management (achievements). Achievements can be granted/revoked to support token gated communities.
 
 This is implemented by writing directly to the metadata through the URI. Usually it's expensive to perform string manipulation to store json strings in the URI but AirDAO is known for cheap fees so it's cheaper to pay gas than to use a decentralized storage like IPFS.
 
